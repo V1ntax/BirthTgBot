@@ -1,0 +1,8 @@
+Happy birthday {name}.
+Happy Monday {name}. Have fun!
+Happy Tuesday {name}. Good day.
+Happy Wednesday {name}. Good luck!
+Happy Thursday {name}. Have great day.
+Happy Friday {name}. GL!
+Happy Saturday {name}. You are the best!
+Happy Sunday {name}. Stay focused.
