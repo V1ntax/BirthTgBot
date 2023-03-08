@@ -62,9 +62,8 @@ async def send_birthday_messages():
 
             await asyncio.sleep(24 * 60 * 60)
         else:
-            # Wait until 8 AM before checking again
+            # Wait until 8:30 AM before checking again
             wait_time = datetime.datetime(now.year, now.month, now.day, 8, 30) - now
-            print(wait_time)
             await asyncio.sleep(wait_time.seconds)
 
 
