@@ -51,20 +51,21 @@ channel_id = telegram_channel_id
 
 
 async def send_birthday_messages():
+    wasChecked = False
     index = 0
+
     while True:
         now = datetime.datetime.now()
-        if now.hour > 8 or (now.hour == 8 and now.minute >= 30):
+        if (now.hour > 8 or (now.hour == 8 and now.minute >= 30)) and wasChecked == False:
             name = check_birthday()
             if name is not None:
                 message, image, index = generate_message(name, index)
                 await bot.send_photo(chat_id=channel_id, photo=image, caption=message)
-
-            await asyncio.sleep(24 * 60 * 60)
+            wasChecked = True
         else:
-            # Wait until 8:30 AM before checking again
             wait_time = datetime.datetime(now.year, now.month, now.day, 8, 30) - now
             await asyncio.sleep(wait_time.seconds)
+            wasChecked = False
 
 
 if __name__ == '__main__':
